@@ -9,11 +9,11 @@ use entities\OfferEntity;
 
 class OfferController extends Controller
 {
-    private \ApiConnection $connection;
+
     public function __construct(\Request $request)
     {
-        $this->connection = new \ApiConnection();
-        $this->entity = new OfferEntity($this->connection);
+
+        $this->entity = new OfferEntity(\ApiConnection::getInstance());
         parent::__construct($request);
     }
 

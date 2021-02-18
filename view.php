@@ -53,7 +53,7 @@ curl_close($curl);*/
 
 </form>
 <form action="contacts/add">
-    <p>Add contacts</p>
+    <h4>Add contacts</h4>
     <label for=""> First Name </label>
     <input type="text" name="name">
     <label for="phone"> Phone </label>
@@ -62,6 +62,14 @@ curl_close($curl);*/
     <input type="text" name="email">
     <label for="company">CompanyID</label>
     <input type="number" name="company">
+    <input type="submit">
+</form>
+<form action="">
+    <h4>Add "text" field</h4>
+    <label for="text">Text</label>
+    <input type="text" name="text">
+    <label for="id">EntityID</label>
+    <input type="number">
     <input type="submit">
 </form>
 <script>

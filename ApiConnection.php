@@ -8,15 +8,20 @@ class ApiConnection
     private string $refreshToken = 'def50200896542dfa50114304c2cf603636509b2c5244eea8f99d22fe7bd1c390a7bcbb06e74617ee4390d96e6680449928cd685ffa6094166a53e4ca8b9d20a8619409faf4b3494e0f80a05d1cb9e94b0d4d33984f222a03fe377c1772d422fbf56d6536d635d6636169cedfe35ae38459b32e4d7cc9203907f52c82da62bf87ab9f4f7a938266855ccd9f9148e20536a18ed94a4cc23fe1b4b4ce02d866d2e2b81c7c4a88dd603c498a7f6701f126189afe68c6900949841e5c63ba9708b5ed17a750d0cbb5559d30269ebb8828c9f9d216db5c05b5730e78092495ee980fb3ef128349f3522986d451c4e75437c7456f51e88ac3e20e429c234fccfe0b68e3724a8ebec24cd8ce9b193d9cf7956e818cbbdda90106044704f3cc155b5d73b09e92ac97a6e995f103d7854b579b82b690f297cdf819498568683a629de6f278e208e58be04749b9396ac6eb3707fcdc211a5aea3900d542bad45eafebfcf95574d5dbb03a801fe2e41ffcba4093dac73b7569832424bd87f4ee44d869b9320aadb16e5642e5533b08e7213f5b3cbdc6caaf08eb51944607ab003c87406b66ce3d6a12969ed7303dbb0f05b72f8cb7d3ae30a029b8c88854b656fa5cc3be375878662c41f1ddcbaad59';
     private $header = 'Authorization: Bearer ';
     private string $subdomain = 'https://dann70s';
-    public function __construct()
+    private static $connection;
+
+    private static function __construct(){}
+    private function __clone(){}
+    private function __wakeup(){}
+
+    public static function getInstance()
     {
-
+        if (empty(self::$connection)){
+            return new self();
+        } else {
+            return self::$connection;
+        }
     }
-    public function a()
-    {
-
-    }
-
     public function init($method, $link,$data = null)
     {
 

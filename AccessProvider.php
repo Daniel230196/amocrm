@@ -41,7 +41,7 @@ class AccessProvider
         return json_decode($this->response, true);
     }
 
-    public function access()
+    private function access()
     {
         $link = 'https://' . $this->subdomain . '.amocrm.ru/oauth2/access_token';
 

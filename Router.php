@@ -4,6 +4,7 @@ class Router
 {
     private static array $routes = [
         'OfferController' => ['add','test'],
+        'ContactsController' => ['add'],
     ];
     private static string $contrNamespace = 'controllers\\';
     public static function init(Request $request)
