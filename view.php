@@ -39,18 +39,24 @@ curl_close($curl);*/
 </head>
 <body>
 <h2> Create entity </h2>
-<form action="offer/add" method="get">
+<form action="leads/add">
     <h4> Add Offer </h4>
-        <p>Company</p>
+
         <label for="name"> Company Name </label>
         <input type="text" name="companies[name]">
         <p>Offer</p>
-        <label for="offer[name]"> Name </label>
-        <input type="text" name="offer[name]">
-        <label for="price"> Price </label>
-        <input type="number" name="offer[price]">
+        <label for="leads[name]"> Name </label>
+        <input type="text" name="leads[name]">
+        <label for="leads[price]"> Price </label>
+        <input type="number" name="leads[price]">
+        <label for="count">Count (0 - 10000)</label>
+        <input type="number" name="count">
         <input type="submit">
-
+</form>
+<form action="company/add">
+    <h4>Add Company</h4>
+    <label for="name"> Company Name </label>
+    <input type="text" name="companies[name]">
 </form>
 <form action="contacts/add">
     <h4>Add contacts</h4>
@@ -60,10 +66,18 @@ curl_close($curl);*/
     <input type="text" name="phone">
     <label for=""> Email </label>
     <input type="text" name="email">
-    <label for="company">CompanyID</label>
+    <label for="entity">Bind Entity</label>
+    <select name="entity">
+    <option value="company">company</option>
+    <option value="customer">customer</option>
+    </select>
+    <label for="company">ID</label>
     <input type="number" name="company">
+    <label for="count">Count (0 - 10000)</label>
+    <input type="number" name="count">
     <input type="submit">
 </form>
+
 <form action="">
     <h4>Add "text" field</h4>
     <label for="text">Text</label>
@@ -79,8 +93,8 @@ curl_close($curl);*/
 </html>
 <?php
 
-//var_dump($_GET);
-/*$curl = curl_init();
+var_dump($_GET);
+$curl = curl_init();
 $link = 'https://dann70s.amocrm.ru/api/v4/leads';
 $method = 'POST';
 $headers = ['Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImM0NmNiM2FhNDA0NjVjN2JiMmU1NzgzNDllNWFhNTMxNmRmYzRmMDVkZjVhMWE1ODlhZGVhZWVlMmVhZmJjY2ZlZWViNDc3MjFlMmY2N2FhIn0.eyJhdWQiOiJkMzA5MjkyNy1lY2Y4LTRlZjQtODdkOS00ODA1NTc3ZDVjNWQiLCJqdGkiOiJjNDZjYjNhYTQwNDY1YzdiYjJlNTc4MzQ5ZTVhYTUzMTZkZmM0ZjA1ZGY1YTFhNTg5YWRlYWVlZTJlYWZiY2NmZWVlYjQ3NzIxZTJmNjdhYSIsImlhdCI6MTYxMzY0NzcwOCwibmJmIjoxNjEzNjQ3NzA4LCJleHAiOjE2MTM3MzQxMDgsInN1YiI6IjY3NjEwMTQiLCJhY2NvdW50X2lkIjoyOTMwMjM3NSwic2NvcGVzIjpbInB1c2hfbm90aWZpY2F0aW9ucyIsImNybSIsIm5vdGlmaWNhdGlvbnMiXX0.WJF59xABYn6eSHyNr49imumDFoLm6xmifvEnY-piYpeJZXr3sfCBWjFfSHrHgIP9SrqhkYt4T3HA74TjZqfMLl59l8c8bLM27TOR-G1-ITM2TYEaztTSvD_nONMHLIEzdLFKaZjBHxj3GH-yxyk4JxUXm-u38-8R118C_mxjY_vKx3K3isTz1JhuABxyS6Bp7i9yId1dQYA9zBCB4618fo7MPCEad_iClHqApfP3KSX8W8LBcj8RcEnAS363ZTSiXwTwi_l5y7kB6_tYfyoGb9xXe0XNslcUOTkNyXv53h5h2xmIj8N9cVtlij03hPNShf2WCYVbV7Lq2Hw7pUo6Sg'];
@@ -88,8 +102,8 @@ $data = [['name' => 'offetttt', 'price' => 1245], ['name' => 'ffffff', 'price' =
 
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($curl, CURLOPT_USERAGENT, 'amoCRM-oAuth-client/1.0');
-curl_setopt($curl, CURLOPT_URL, $link);
-curl_setopt($curl, CURLOPT_CUSTOMREQUEST, $method);
+curl_setopt($curl, CURLOPT_URL, 'https://dann70s.amocrm.ru/api/v4/companies/2546937/links');
+curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'GET');
 curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($data));
 curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
 curl_setopt($curl, CURLOPT_HEADER, false);
@@ -98,5 +112,5 @@ curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 2);
 $out = curl_exec($curl);
 $code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
-var_dump($out);*/
+var_dump($out);
 ?>
