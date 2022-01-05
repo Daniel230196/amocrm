@@ -15,6 +15,5 @@ class ContactsController extends Controller
     public function add()
     {
         $data = $this->request->getData();
-
     }
 }

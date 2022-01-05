@@ -19,17 +19,6 @@ class LeadsController extends Controller
     {
         $data = $this->request->getData();
         $res = $this->entity->complexAdd($data);
-        var_dump($res);
-
-        //if (!empty($data['contacts']['first_name']) && !empty($data['companies']['name'])){
-
-
-            //$res = $this->entity->complexAdd($data);
-        /*} else {
-
-            $res = $this->entity->add($data);
-        }*/
-
     }
 
 }

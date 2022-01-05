@@ -15,14 +15,6 @@ class LeadsEntity extends Entity
         parent::__construct($connection);
     }
 
-    /*public function add($data)
-    {
-        $this->correctData($data);
-        $data = json_encode([$data]);
-        var_dump(json_encode($data));
-        return $this->connection->init($this);
-    }*/
-
     public function complexAdd($data)
     {
 
